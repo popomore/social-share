@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>sharejs</title>
+	    <meta charset='utf-8'>
+		<script src="/lib/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/service/weibo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/share.jquery.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+            .container {width:950px; margin:50px auto;} 
+            .container table {width: 100%;}
+            .container table td {height:30px;width:10%; text-align: center;}
+        </style>
+	</head>
+	<body>
+        <div class="container">
+        <table border="">
+            <tr>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">新浪微博</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">腾讯微博</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">qq空间</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">豆瓣</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">腾讯朋友</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">人人网</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">开心网</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">网易微博</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">网易微博</a>
+                </td>
+                <td>
+		            <a class="J-share" href="#" data-share="weibo">新浪微博</a>
+                </td>
+            </tr>
+            <tr><td>腾讯微博</td></tr>
+        </table>
+    </div>
+
+		<script>
+            $('.J-share').share({
+                title: '分享文案，英文abcd，中文标点。{（？，英文表单,.({，链接https://'
+            });
+		</script>
+	</body>
+</html>
+    
