@@ -30,7 +30,7 @@
 		
 		_service : {}, //储存所有服务的配置
 
-		_supportKey : ['apiUrl','title','url','pic','source'], //服务支持的参数
+		_supportKey : ['apiUrl','title','url','pic'], //服务支持的参数
 
 		_containSupportKey : function(key){
 			var i;
