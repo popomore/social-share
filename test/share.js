@@ -38,16 +38,6 @@ describe("Share", function() {
 				sharejs.pushService('weibo', service);
 			}).toThrow(new Error('Service must specify the key "apiUrl"'));
 	    });
-
-		it("Method pushService: without parameter url", function() {
-	        var service = {
-	            'apiUrl': 'http://v.t.sina.com.cn/share/share.php'
-	        };
-
-			expect(function(){
-				sharejs.pushService('weibo', service);
-			}).toThrow(new Error('Service must specify the key "url"'));
-	    });
 	
 		it("Method pushService: key not support", function() {
 	        var service = {
