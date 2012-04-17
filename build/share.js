@@ -129,6 +129,11 @@ sharejs.pushService('douban',{
 	'url': 'href',
 	'pic': 'image'
 });
+sharejs.pushService('facebook',{
+	'apiUrl': 'http://www.facebook.com/sharer.php',
+	'title': 't',
+	'url': 'u'
+});
 sharejs.pushService('kaixin',{
 	'apiUrl': 'http://www.kaixin001.com/repaste/bshare.php',
 	'title': 'rtitle',
@@ -174,3 +179,8 @@ sharejs.pushService('sohu',{
 sharejs.before('sohu',function(option, service){
     option['content'] = 'utf-8';
 })
+sharejs.pushService('twitter',{
+    'apiUrl': 'https://twitter.com/intent/tweet',
+    'title': 'text',
+    'url': 'url'
+});
