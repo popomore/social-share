@@ -15,13 +15,34 @@
 	});
 
 
+## 名词
+
+<table>
+	<tr>
+		<td>服务提供商</td>
+		<td>提供某个分享服务的网站，如新浪微博</td>
+	</tr>
+	<tr>
+		<td>服务id</td>
+		<td>服务提供商对应的唯一id，如sina</td>
+	</tr>
+	<tr>
+		<td>开发者</td>
+		<td>使用此js的用户，他们可以为某个网站，如优酷</td>
+	</tr>
+	<tr>
+		<td>最终用户</td>
+		<td>使用某网站的用户，如使用优酷网分享到新浪微博的用户</td>
+	</tr>
+</table>
+
 ## API文档
 
 ### parse(serviceId, options)
 
-将指定服务解析成url的方法
+根据指定服务id解析url
 
-_此方法面向最终开发者_
+_此方法面向开发者_
 
 * __Parameter__ \<String\>serviceId 需要解析的服务名，如不存在会抛出异常 
 [已支持的服务列表]()
@@ -50,7 +71,7 @@ _此方法面向最终开发者_
 
 添加服务，后添加的id会覆盖前面
 
-_此方法面向服务提供方_
+_此方法面向服务提供商_
 
 * __Parameter__ \<String\>serviceId 添加的服务名，如有重复会覆盖以前的
 
@@ -101,3 +122,7 @@ _此方法面向服务提供方_
 ## 使用jquery
 
 ## 使用nodejs
+
+## License
+
+sharejs is available under the terms of the MIT license.
