@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sharejs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <link rel="stylesheet" href="http://aralejs.github.com/assets/base.css" />
+        <link rel="stylesheet" href="http://aralejs.github.com/assets/style.css" />
+        <link rel="stylesheet" href="http://aralejs.github.com/assets/pygments.css" />
+        <script src="https://a.alipayobjects.com/static/arale/seajs/1.2.0/sea.js"></script>
+        
+        
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="http://aralejs.github.com/assets/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <header id="header">
+            <h1 id="brand"><a href="http://aralejs.org/">Arale</a></h1>
+            <nav id="nav" role="navigation">
+                <a href="./">Sharejs</a>
+                <a href="./examples/">Examples</a>
+                
+                
+                <a id="nav-test" href="./tests/runner.html">Tests</a>
+                
+            </nav>
+        </header>
+
+        <div id="main">
+            <div class="container">
+
+<p>各个社会化产品的分享接口都各不相同，sharejs致力于提供统一的分享接口，以方便使用。</p>
+
+<h2>如何使用</h2>
+<p>引用sharejs</p>
+
+<pre><code>&lt;script src=&quot;/build/share.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</code></pre>
+<p>解析url</p>
+
+<pre><code>sharejs.parse('weibo', {
+    title : '分享文案',
+    pic : '分享图片.jpg'
+});</code></pre>
+
+<h2>名词</h2>
+
+<table>
+    <tr>
+        <td>服务提供商</td>
+        <td>提供某个分享服务的网站，如新浪微博</td>
+    </tr>
+    <tr>
+        <td>服务id</td>
+        <td>服务提供商对应的唯一id，如sina</td>
+    </tr>
+    <tr>
+        <td>开发者</td>
+        <td>使用此js的用户，他们可以为某个网站，如优酷</td>
+    </tr>
+    <tr>
+        <td>最终用户</td>
+        <td>使用某网站的用户，如使用优酷网分享到新浪微博的用户</td>
+    </tr>
+</table>
+
+<h2>API文档</h2>
+
+<h3>parse(serviceId, options)</h3>
+<p>根据指定服务id解析url</p>
+<p><em>此方法面向开发者</em></p>
+
+<ul>
+<li><p><strong>Parameter</strong> &lt;String&gt;serviceId 需要解析的服务名，如不存在会抛出异常 
+[已支持的服务列表]()</p></li>
+<li><p><strong>Parameter</strong> &lt;Object&gt;options 解析时需要用户自定义的参数，支持的参数如下    </p></li>
+</ul>
+
+<table>
+    <tr>
+        <td>title</td>
+        <td>分享的文案</td>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>分享的链接</td>
+    </tr>
+    <tr>
+        <td>pic</td>
+        <td>分享的图片</td>
+    </tr>
+</table>
+
+<ul>
+<li><strong>Return</strong> &lt;String&gt;url 最终返回的链接，链接会跳转到最终服务提供商</li>
+</ul>
+
+<h3>pushService(serviceId, service)</h3>
+<p>添加服务，后添加的id会覆盖前面</p>
+<p><em>此方法面向服务提供商</em></p>
+
+<ul>
+<li><p><strong>Parameter</strong> &lt;String&gt;serviceId 添加的服务名，如有重复会覆盖以前的</p></li>
+<li><p><strong>Parameter</strong> &lt;Object&gt;service 添加匹配关系，apiUrl和url为必填，有如下参数</p></li>
+</ul>
+
+<table>
+    <tr>
+        <td>apiUrl</td>
+        <td>服务商的接口</td>
+        <td>必填</td>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>分享链接的参数</td>
+        <td>必填</td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>分享文案的参数</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>pic</td>
+        <td>分享图片的参数</td>
+        <td></td>
+    </tr>
+</table>
+
+<h2>如何添加服务</h2>
+
+<ol>
+<li>确定serviceId，如example</li>
+<li>在<code>src/service</code>目录添加example.js文件，使用<code>pushService</code>方法添加匹配关系</li>
+<li>在<code>demo/demo.htm</code>中添加example的icon</li>
+<li>在[已支持的服务列表]()添加该服务</li>
+</ol>
+
+<h2>部署</h2>
+<p>执行部署脚本，输出到<code>build/share.js</code></p>
+
+<pre><code>sh build.sh</code></pre>
+<p>只打包部分服务</p>
+
+<pre><code>sh build.sh -f weibo,qq</code></pre>
+
+<h2>使用jquery</h2>
+
+<h2>使用nodejs</h2>
+
+<h2>License</h2>
+<p>sharejs is available under the terms of the MIT license.</p>
+
+
+            </div>
+        </div>
+        <hr class="end" />
+    </body>
+</html>
