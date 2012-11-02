@@ -1,4 +1,4 @@
-;(function() {
+;(function(global) {
     var services = {
         'douban': 'http://shuo.douban.com/!service/share?name={{title}}&href={{url}}&image={{pic}}',
         'facebook': 'http://www.facebook.com/sharer.php?t={{title}}&u={{url}}',
@@ -29,4 +29,8 @@
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = parser;
     }
-})();
+
+    if (global.Share) {
+        global.Share.parser = parser;
+    }
+})(this);
