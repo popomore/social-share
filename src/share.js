@@ -1,7 +1,7 @@
 ;(function(global) {
     if (global.Share) return;
 
-    var supportJquery = ($ === jQuery),
+    var supportJquery = (window.jQuery && $ === jQuery),
         supportParam = ['service', 'title', 'url', 'pic'];
 
     var Share = global.Share = {
@@ -23,9 +23,9 @@
         if (supportJquery) {
             $.each(arr, callback);
         } else {
-            if (DOMList && DOMList.length) {
-                for (var i = 0, l = DOMList.length; i < l; i++) {
-                    callback(i, DOMList[i]);
+            if (arr && arr.length) {
+                for (var i = 0, l = arr.length; i < l; i++) {
+                    callback(i, arr[i]);
                 }
             }
         }
@@ -35,22 +35,28 @@
         if (supportJquery) {
             return $.extend({}, target, object);
         } else {
-            for (var i in object) {
-                if (object.hasOwnProperty(i)) {
-                    target[i] = object[i];
+            var t = {};
+            for (var i in target) {
+                if (target.hasOwnProperty(i)) {
+                    t[i] = target[i];
                 }
             }
-            return target;
+            for (var i in object) {
+                if (object.hasOwnProperty(i)) {
+                    t[i] = object[i];
+                }
+            }
+            return t;
         }
     }
 
     // Get DATA-API
     function getData(obj) {
         var data = {};
-        for (var j in supportParam) {
-            var a = obj.getAttribute('data-' + j);
-            if (a) data[j] = a;
-        }
+        each(supportParam, function(i, o) {
+            var a = obj.getAttribute('data-' + o);
+            if (a) data[o] = a;
+        });
         return data;
     }
 
