@@ -28,7 +28,7 @@ Share.init(list, {
 
 Find the DOM and bind event, popup the window and redirect to the service when DOM is clicked. 
 
-`data-service` must be specified. See [Support service](#Support-service)
+`data-service` must be specified. See [Support service](#support-service)
 
 ### DATA-API
 
