@@ -1,4 +1,4 @@
-# Social Share
+# Social Share [![Build Status](https://secure.travis-ci.org/popomore/social-share.png)](http://travis-ci.org/popomore/social-share)
 
 A simple and easy-to-use social share tool. It can be used in both browser and nodejs.
 
