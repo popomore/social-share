@@ -1,6 +1,6 @@
 {
-    "name": "social-share-js",
-    "description": "",
+    "name": "social-share",
+    "description": "A simple and easy-to-use social share tool",
     "version": "0.1.0",
     "homepage": "https://github.com/popomore/social-share-js",
     "author": "popomore <sakura9515@gmail.com>",
