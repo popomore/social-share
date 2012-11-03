@@ -11,3 +11,6 @@ compile:
 
 server:
 	node example/server.js
+
+test:
+	@./node_modules/.bin/mocha tests/parser-spec.js
