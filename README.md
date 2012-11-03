@@ -4,11 +4,11 @@ A simple and easy-to-use social share tool. It can be used in both browser and n
 
 ---
 
-First of all, view the example.
+First of all, view the [example](http://popomore.github.com/social-share/examples/).
 
 ## How to use
 
-html
+Html
 
 ```
 <script src="share.min.js"></script>
@@ -16,7 +16,7 @@ html
 <a data-service="facebook">facebook</a>
 ```
 
-javascript
+Javascript
 
 ```
 var list = document.getElementsByTagName('a');
@@ -25,6 +25,10 @@ Share.init(list, {
     url: 'https://github.com/popomore/social-share'
 });
 ```
+
+Find the DOM and bind event, popup the window and redirect to the service when DOM is clicked. 
+
+`data-service` must be specified. See [Support service](#Support service)
 
 ### DATA-API
 
@@ -36,9 +40,9 @@ DATA-API is higher priority than options, then the share content will be "share 
 
 ### Parameter
 
- -  title - share content
- -  url - share url
- -  pic - share picture
+ -  **title** - share content
+ -  **url** - share url
+ -  **pic** - share picture
  
 However, not all of the services support these parameter, view the [defference](https://github.com/popomore/social-share/wiki).
 
@@ -52,7 +56,7 @@ Icon | Service
 
 ## jQuery support
 
-if you use jQuery, it's easy to use.
+If you use jQuery, it's easy to use.
 
 ```
 $('selector').share({
@@ -60,15 +64,17 @@ $('selector').share({
 });
 ```
 
+[jQuery Example](http://popomore.github.com/social-share/examples/index.jquery.html)
+
 ## Node.js support
 
-install social-share by npm
+Install social-share by npm
 
 ```
 npm install social-share
 ```
 
-just use it
+Just use it
 
 ```
 var share = require('social-share');
@@ -77,7 +83,7 @@ var url = share('twitter', {
 });
 ```
 
-if you use express, you can
+If you use express, you can
 
 ```
 app.get('/redirect', function(req, res) {
@@ -86,14 +92,14 @@ app.get('/redirect', function(req, res) {
 });
 ```
 
-you can clone the repo to view the example.
+You can clone the repo to view the example.
 
 ```
 $ git clone https://github.com/popomore/$ social-share.git
 make server
 ```
 
-view `http://127.0.0.1:3000/`
+View `http://127.0.0.1:3000/`
 
 
 
