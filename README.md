@@ -1,128 +1,99 @@
-各个社会化产品的分享接口都各不相同，sharejs致力于提供统一的分享接口，以方便使用。
+Social Share
 
-## 如何使用
+A simple and easy-to-use social share tool. It can be used in both browser and nodejs.
 
-引用sharejs
+---
 
-	<script src="/build/share.js" type="text/javascript" charset="utf-8"></script>
+First of all, view the example.
 
+## How to use
 
-解析url
+html
 
-	sharejs.parse('weibo', {
-		title : '分享文案',
-		pic : '分享图片.jpg'
-	});
+```
+<script src="share.min.js"></script>
+<a data-service="twitter">twitter</a>
+<a data-service="facebook">facebook</a>
+```
 
+javascript
 
-## 名词
+```
+var list = document.getElementsByTagName('a');
+Share.init(list, {
+    title: 'share it',
+    url: 'https://github.com/popomore/social-share'
+});
+```
 
-<table>
-	<tr>
-		<td>服务提供商</td>
-		<td>提供某个分享服务的网站，如新浪微博</td>
-	</tr>
-	<tr>
-		<td>服务id</td>
-		<td>服务提供商对应的唯一id，如sina</td>
-	</tr>
-	<tr>
-		<td>开发者</td>
-		<td>使用此js的用户，他们可以为某个网站，如优酷</td>
-	</tr>
-	<tr>
-		<td>最终用户</td>
-		<td>使用某网站的用户，如使用优酷网分享到新浪微博的用户</td>
-	</tr>
-</table>
+### DATA-API
 
-## API文档
+```
+<a data-service="twitter" data-title="share twitter">twitter</a>
+```
 
-### parse(serviceId, options)
+DATA-API is higher priority than options, then the share content will be "share twitter".
 
-根据指定服务id解析url
+### Parameter
 
-_此方法面向开发者_
+ -  title - share content
+ -  url - share url
+ -  pic - share picture
+ 
+However, not all of the services support these parameter, view the [defference](https://github.com/popomore/social-share/wiki).
 
-* __Parameter__ \<String\>serviceId 需要解析的服务名，如不存在会抛出异常 
-[已支持的服务列表]()
+## Support service
 
-* __Parameter__ \<Object\>options 解析时需要用户自定义的参数，支持的参数如下    
+Icon | Service
+------ | ------
+   | sina
 
-<table>
-	<tr>
-		<td>title</td>
-		<td>分享的文案</td>
-	</tr>
-	<tr>
-		<td>url</td>
-		<td>分享的链接</td>
-	</tr>
-	<tr>
-		<td>pic</td>
-		<td>分享的图片</td>
-	</tr>
-</table>
+[The difference between services](https://github.com/popomore/social-share/wiki)
 
-* __Return__ \<String\>url 最终返回的链接，链接会跳转到最终服务提供商
+## jQuery support
 
+if you use jQuery, it's easy to use.
 
-### pushService(serviceId, service)
+```
+$('selector').share({
+    title:'share it'
+});
+```
 
-添加服务，后添加的id会覆盖前面
+## Node.js support
 
-_此方法面向服务提供商_
+install social-share by npm
 
-* __Parameter__ \<String\>serviceId 添加的服务名，如有重复会覆盖以前的
+```
+npm install social-share
+```
 
-* __Parameter__ \<Object\>service 添加匹配关系，apiUrl和url为必填，有如下参数
+just use it
 
-<table>
-	<tr>
-		<td>apiUrl</td>
-		<td>服务商的接口</td>
-		<td>必填</td>
-	</tr>
-	<tr>
-		<td>url</td>
-		<td>分享链接的参数</td>
-		<td>必填</td>
-	</tr>
-	<tr>
-		<td>title</td>
-		<td>分享文案的参数</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>pic</td>
-		<td>分享图片的参数</td>
-		<td></td>
-	</tr>
-</table>
+```
+var share = require('social-share');
+var url = share('twitter', {
+    title:'share it'
+});
+```
+
+if you use express, you can
+
+```
+app.get('/redirect', function(req, res) {
+    var url = share(req.query.service, req.query);
+    res.redirect(url);
+});
+```
+
+you can clone the repo to view the example.
+
+```
+$ git clone https://github.com/popomore/$ social-share.git
+make server
+```
+
+view `http://127.0.0.1:3000/`
 
 
 
-## 如何添加服务
-
-1. 确定serviceId，如example
-2. 在`src/service`目录添加example.js文件，使用`pushService`方法添加匹配关系
-3. 在`demo/demo.htm`中添加example的icon
-4. 在[已支持的服务列表]()添加该服务
-
-## 部署
-
-执行部署脚本，输出到`build/share.js`
-
-	sh build.sh
-
-只打包部分服务
-
-	sh build.sh -f weibo,qq
-
-## 使用jquery
-
-## 使用nodejs
-
-## License
-
-sharejs is available under the terms of the MIT license.
