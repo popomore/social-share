@@ -10,7 +10,7 @@ compile:
 	java -jar tools/compiler.jar --js share.js --js_output_file share.min.js
 
 server:
-	node example/server.js
+	node examples/server.js
 
 test:
 	@./node_modules/.bin/mocha tests/parser-spec.js
