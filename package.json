@@ -13,9 +13,9 @@
         "url": "https://github.com/popomore/social-share/issues"
     },
     "devDependencies": {
-        "swig": "0.13.2",
-        "consolidate": "0.5.0",
-        "mocha": "1.6.0",
+        "swig": "*",
+        "consolidate": "*",
+        "mocha": "*",
         "express": "3.x"
     },
     "scripts": {
