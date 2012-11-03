@@ -16,6 +16,7 @@
         "swig": "*",
         "consolidate": "*",
         "mocha": "*",
+        "chai": "*",
         "express": "3.x"
     },
     "scripts": {

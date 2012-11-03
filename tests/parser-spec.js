@@ -1,132 +1,27 @@
-describe("Share", function() {
+describe('Share.parser', function() {
+    var parser = require('../src/parser.js');
+    var chai = require('chai');
+    var expect = chai.expect;
 
-    describe("Method before", function() {
-
-        beforeEach(function() {
-            sharejs._beforeFunc = {};
-        });
-
-        it("Method before: add a func", function() {
-            var func = function(){};
-            sharejs.before('weibo', func);
-            expect(sharejs._beforeFunc['weibo']).toEqual(func);
-        }); 
-
-        it("Method before: isFunction", function() {
-            sharejs.before('weibo', 1);
-            expect(sharejs._beforeFunc).toEqual({});
-            
-            sharejs.before('weibo', 'a');
-            expect(sharejs._beforeFunc).toEqual({});
-
-            sharejs.before('weibo', {});
-            expect(sharejs._beforeFunc).toEqual({});
-
-            sharejs.before('weibo', new Date());
-            expect(sharejs._beforeFunc).toEqual({});
-        }); 
+    it('should specify serviceId', function() {
+        function fn() {
+            parser();
+        }
+        expect(fn).to.throw(/Should specify serviceId/);
     });
 
-    describe("Method pushService", function() {
-
-        beforeEach(function() {
-            sharejs._service = {};
-        });
-
-        it("Method pushService: add a service", function() {
-            var service = {
-                'apiUrl': 'http://v.t.sina.com.cn/share/share.php',
-            'title': 'title',
-            'url': 'url',
-            'pic': 'pic'
-            };
-            sharejs.pushService('weibo', service);
-
-            expect(sharejs._service['weibo']).toEqual(service);
-
-        });
-
-        it("Method pushService: without parameter apiUrl", function() {
-            var service = {
-                'url': 'url'
-            };
-
-            expect(function(){
-                sharejs.pushService('weibo', service);
-            }).toThrow(new Error('Service must specify the key "apiUrl"'));
-        });
-
-        it("Method pushService: service can be override", function() {
-            var service = {
-                'apiUrl': 'http://v.t.sina.com.cn/share/share.php',
-            'title': 'title',
-            'url': 'url',
-            'pic': 'pic'
-            };
-            sharejs.pushService('weibo', service);
-
-            var service2 = {
-                'apiUrl': 'http://v.t.sina.com.cn/share/share.php',
-            'title': 'title',
-            'url': 'url',
-            'pic': 'pics'
-            };
-
-            sharejs.pushService('weibo', service2);
-
-            expect(sharejs._service['weibo']).toEqual(service2);
-        });	
-
+    it('should specify a exist serviceId', function() {
+        function fn() {
+            parser('notexist', {});
+        }
+        expect(fn).to.throw(/"notexist" do not exist/);
     });
 
-    describe("Method parse", function() {
-
-        beforeEach(function() {
-            sharejs.pushService('weibo',{
-                'apiUrl': 'http://v.t.sina.com.cn/share/share.php',
-                'title': 'title',
-                'url': 'url',
-                'pic': 'pic'
-            });
+    it('should encode', function() {
+        var url = parser('douban', {
+            title: '中文',
+            url: 'http://github.com?a=1&b=2'
         });
-
-        it("Method parse: no service configuration", function() {
-
-            expect(function(){
-                sharejs.parse('weibo2',{});
-            }).toThrow(new Error('No Service "weibo2" Configuration'));
-        });	
-
-        it("Method parse: no param", function() {
-            var result = sharejs.parse('weibo');
-            expect(result).toEqual('http://v.t.sina.com.cn/share/share.php?');
-        });	
-
-        it("Method parse: parse weibo", function() {
-            var result = sharejs.parse('weibo',{
-                title : '文案'
-            });
-            expect(result).toEqual('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent('文案'));
-        });	
-
-        it("Method parse: before option", function() {
-            sharejs.pushService('weibo',{
-                'apiUrl': 'http://v.t.sina.com.cn/share/share.php',
-                'title': 'title',
-                'url': 'url',
-                'pic': 'pic'
-            });
-
-            sharejs.before('weibo',function(option, service){
-                option['title'] = 'tt';
-            })
-
-            var result = sharejs.parse('weibo',{
-                title : '文案'
-            });
-            expect(result).toEqual('http://v.t.sina.com.cn/share/share.php?title=tt');
-        });	
-
+        expect(url).to.equal('http://shuo.douban.com/!service/share?name=%E4%B8%AD%E6%96%87&href=http%3A%2F%2Fgithub.com%3Fa%3D1%26b%3D2&image=');
     });
-
 });

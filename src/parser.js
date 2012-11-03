@@ -16,8 +16,13 @@
         var service = services[serviceId];
 
         // Should specify serviceId
+        if (!serviceId) {
+            throw new Error('Should specify serviceId');
+        }
+
+        // ServiceId should exist
         if (!service) {
-            throw new Error('No Service "' + serviceId + '" Configuration');
+            throw new Error('"' + serviceId + '" do not exist');
         }
 
         return service.replace(/{{(.*?)}}/g, function(a, m) {
