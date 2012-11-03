@@ -7,10 +7,10 @@
     "main": "./src/parser.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/popomore/social-share-js.git"
+        "url": "https://github.com/popomore/social-share.git"
     },
     "bugs": {
-        "url": "https://github.com/popomore/social-share-js/issues"
+        "url": "https://github.com/popomore/social-share/issues"
     },
     "devDependencies": {
         "swig": "0.13.2",
