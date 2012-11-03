@@ -24,4 +24,9 @@ describe('Share.parser', function() {
         });
         expect(url).to.equal('http://shuo.douban.com/!service/share?name=%E4%B8%AD%E6%96%87&href=http%3A%2F%2Fgithub.com%3Fa%3D1%26b%3D2&image=');
     });
+
+    it('should replace template', function() {
+        var url = parser('douban');
+        expect(url).to.equal('http://shuo.douban.com/!service/share?name=&href=&image=');
+    });
 });
