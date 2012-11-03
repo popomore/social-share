@@ -98,11 +98,19 @@
     function parser(serviceId, option) {
         var service = services[serviceId];
 
+        option || (option = {});
+
         // Should specify serviceId
-        if (!service) {
-            throw new Error('No Service "' + serviceId + '" Configuration');
+        if (!serviceId) {
+            throw new Error('Should specify serviceId');
         }
 
+        // ServiceId should exist
+        if (!service) {
+            throw new Error('"' + serviceId + '" do not exist');
+        }
+
+        // replace template
         return service.replace(/{{(.*?)}}/g, function(a, m) {
             return option[m] ?
                 encodeURIComponent(option[m]) : '';
