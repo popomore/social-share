@@ -1,4 +1,4 @@
-Social Share
+# Social Share
 
 A simple and easy-to-use social share tool. It can be used in both browser and nodejs.
 
