@@ -71,7 +71,7 @@ $('selector').share({
 Install social-share by npm
 
 ```
-npm install social-share
+$ npm install social-share
 ```
 
 Just use it
@@ -95,8 +95,8 @@ app.get('/redirect', function(req, res) {
 You can clone the repo to view the example.
 
 ```
-$ git clone https://github.com/popomore/$ social-share.git
-make server
+$ git clone https://github.com/popomore/social-share.git
+$ make server
 ```
 
 View `http://127.0.0.1:3000/`
