@@ -1,7 +1,7 @@
 ;(function(global) {
     if (global.Share) return;
 
-    var supportJquery = (window.jQuery && $ === jQuery),
+    var supportJquery = (typeof $ !== 'undefined' && $ === jQuery),
         supportParam = ['service', 'title', 'url', 'pic'];
 
     var Share = global.Share = {
