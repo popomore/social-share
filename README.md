@@ -48,11 +48,24 @@ However, not all of the services support these parameter, view the [defference](
 
 ## Support service
 
-Icon | Service
------- | ------
-   | sina
+Icon | Service | website
+------ | ----- | -----
+   | sina | http://weibo.com/
+| douban | http://www.douban.com/
+| facebook | http://www.facebook.com/
+| kaixin | http://www.kaixin001.com/
+| netease | http://t.163.com/
+| qq_t | http://t.qq.com/
+| qq_zone | http://qzone.qq.com/
+| renren | http://renren.com/
+| twitter | http://twitter.com/
+| sohu | http://t.sohu.com/
 
 [The difference between services](https://github.com/popomore/social-share/wiki)
+
+### Add new service
+
+Edit `src/parser.js`, and add service url which just support three parameter(title, url, pic).
 
 ## jQuery support
 
