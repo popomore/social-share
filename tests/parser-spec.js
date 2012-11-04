@@ -1,6 +1,5 @@
 describe('Share.parser', function() {
-    var parser = require('../src/parser.js');
-    var chai = require('chai');
+    var parser = Share.parser;
     var expect = chai.expect;
 
     it('should specify serviceId', function() {
