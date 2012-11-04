@@ -13,7 +13,11 @@
   <script src="../src/parser.js"></script>
   <script src="parser-spec.js"></script>
   <script>
-    mocha.run();
+  if (window.mochaPhantomJS) {
+    mochaPhantomJS.run(); 
+  } else {
+    mocha.run(); 
+  }
   </script>
 </body>
 </html>

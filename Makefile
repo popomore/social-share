@@ -16,4 +16,4 @@ server:
 	@node examples/server.js
 
 test:
-	@./node_modules/.bin/mocha tests/parser-spec.js
+	@./node_modules/.bin/mocha-phantomjs tests/runner.html

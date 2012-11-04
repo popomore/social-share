@@ -16,6 +16,7 @@
         "swig": "*",
         "consolidate": "*",
         "mocha": "*",
+        "mocha-phantomjs": "*",
         "chai": "*",
         "express": "3.x"
     },
