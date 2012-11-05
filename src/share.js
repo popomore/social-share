@@ -9,8 +9,9 @@
             each(DOMList, function(i, o) {
                 var data = getData(o);
                 data = mix(options, data);
+                o.setAttribute('data-shareurl', Share.parser(data.service, data));
                 bindEvent(o, 'click', function(e) {
-                    window.open(Share.parser(data.service, data));
+                    window.open(this.getAttribute('data-shareurl'));
                 });
             });
         }
