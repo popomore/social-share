@@ -20,9 +20,6 @@
         "chai": "*",
         "express": "3.x"
     },
-    "scripts": {
-        "test": "make test"
-    },
     "licenses": [
         {
             "type": "MIT",
