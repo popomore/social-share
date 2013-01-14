@@ -11,7 +11,9 @@ First of all, view the [example](http://popomore.github.com/social-share/example
 Html
 
 ```
-<div>aaa</div>
+<script src="share.min.js"></script>
+<a data-service="twitter">twitter</a>
+<a data-service="facebook">facebook</a>
 ```
 
 Javascript
