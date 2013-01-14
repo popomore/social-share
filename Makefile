@@ -8,7 +8,7 @@ cat:
 	@echo "combine complete `pwd`/share.js"
 
 compile:
-	@java -jar tools/compiler.jar --js share.js --js_output_file share.min.js
+	@./node_modules/.bin/uglifyjs -o share.min.js share.js
 	@echo "compile complete `pwd`/share.min.js"
 
 server:

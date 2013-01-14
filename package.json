@@ -14,6 +14,7 @@
     },
     "devDependencies": {
         "swig": "*",
+        "uglify-js": "*",
         "consolidate": "*",
         "mocha": "*",
         "mocha-phantomjs": "*",
